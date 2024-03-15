@@ -1,0 +1,18 @@
+<div class="container" *ngIf="sharedService._countryData | async as country">
+    <div class="header">
+      <img
+        src="https://flagsapi.com/{{ country.countryCode }}/shiny/64.png"
+        alt="country flag"
+      />
+      <div class="title">
+        <h1>{{ country.city }}</h1>
+        <h5>{{country.country}} , {{country.countryCode}}</h5>
+      </div>
+    </div>
+    <div class="card-text">
+      <p>
+        {{ country.description }}
+      </p>
+    </div>
+  </div>
+  

@@ -1,0 +1,26 @@
+
+  <div class="search-bar">
+    <div class="search-row">
+      <input
+        class="search-input"
+        type="text"
+        id="search"
+        [placeholder]="placeholder"
+        autocomplete="off"
+        [formControl]="searchControl"
+      />
+      <fa-icon [icon]="faSearch" size="lg" (click)="emitData()"></fa-icon>
+    </div>
+    <div class="list" *ngIf="searchControl.value as searchText">
+      <div
+        class="list-item"
+        *ngFor="let item of list | filterlist:searchControl.value"
+        (click)="searchControl.setValue(item.name); emitData()"
+      >
+        {{ item.name }}
+      </div>
+    </div>
+  </div>
+
+
+<!-- *ngIf="filteredValue | async as countryList" -->
