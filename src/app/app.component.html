@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="header">
+    <app-header ></app-header>
+  </div>
+  <div class="body-cont">
+    <div class="search">
+      <app-search  [placeholder]="searchCountries"
+      [list]="countriesList"
+      (valueEmitter)="filterLocation($event)"></app-search>
+    </div>
+    <div class="display-container">
+      <div class="card-container" >
+        <div class="card weather-card" [class.flip]="toggle">
+          <app-weather></app-weather>
+          <fa-icon class="toggle" [icon]="farotate" size="lg" (click)="toggle = !toggle"></fa-icon>
+        </div>
+        
+        <div class="card country-card" [class.flip]="!toggle">
+          <app-city></app-city>
+          <fa-icon class="toggle" [icon]="farotate" size="lg" (click)="toggle = !toggle"></fa-icon>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- *ngIf="sharedService._weatherData | async "  -->

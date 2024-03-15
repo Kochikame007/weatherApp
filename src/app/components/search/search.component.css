@@ -1,0 +1,44 @@
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* background: #333; */
+}
+
+.search-row {
+  position: relative;
+}
+
+.search-input {
+  width: 400px;
+  height: 40px;
+  border-radius: 20px;
+  padding: 0 10px;
+  outline: none;
+  border: 1px solid black;
+}
+
+fa-icon {
+  position: absolute;
+  top: 20%;
+  right: 3%;
+}
+
+.list {
+  /* background: grey; */
+  width: 270px;
+  padding: 5px;
+  font-size: 15px;
+  /* margin-top: 2%; */
+  border-radius: 10px;
+  position: absolute;
+  top: 110%;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.5); /* Transparent white background */
+  backdrop-filter: blur(10px); /* Applies a blur effect */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
