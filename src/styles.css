@@ -30,6 +30,10 @@ body{
         background-position: center;
         background-size: cover;
     }
+    p{
+        font-size: 15px;
+
+    }
 }
 
 h5{

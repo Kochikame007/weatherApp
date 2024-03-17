@@ -6,7 +6,6 @@ import { WeatherComponent } from './components/weather/weather.component';
 import { countryService } from './services/countryService';
 import { countries } from './utilities/data';
 import { weatherService } from './services/weatherService';
-import { weatherMapper } from './utilities/mapper';
 import { SharedService } from './services/sharedService';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faRotate } from '@fortawesome/free-solid-svg-icons';
@@ -71,7 +70,6 @@ export class AppComponent {
    */
   filterLocation(value: any) {
     const place = this.countriesList.filter(item => item.name === value)[0];
-    this.sharedService.updateCity(place.name)
     this.getWeather(place.lon, place.lat);
     this.getCountry(place)
   }
