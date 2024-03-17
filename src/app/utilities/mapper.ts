@@ -11,7 +11,6 @@ import { weatherIcon } from "./weatherIcon";
  */
 export function weatherMapper(weatherData: any, forecastData: any) {
   let weather: Weather;
-  console.log(weatherData.name)
   weather = {
     city: weatherData.name,
     feels_like: weatherData.main.feels_like,
@@ -38,7 +37,6 @@ export function weatherMapper(weatherData: any, forecastData: any) {
 
 function getSunsetSunrise(time) {
   const formatedTime = new Date(time * 1000);
-  console.log("time ", formatedTime.toLocaleTimeString('en-US'))
   return formatedTime.toLocaleTimeString('en-US');
 }
 
@@ -71,7 +69,6 @@ function transformForecast(dataset, timezone) {
       existing.temp_min = Math.min(data.main.temp_min, existing.temp_min);
       existing.temp_max = Math.max(data.main.temp_max, existing.temp_max);
     } else {
-      console.log("from forecast")
       forecast.push(
         {
           day: getLocaleDayNames((data.dt + timezone)),
@@ -92,6 +89,7 @@ function transformForecast(dataset, timezone) {
  * Checks if it is daytime.
  * @param {any} data - Weather data.
  * @returns {boolean} True if it is daytime, false otherwise.
+ * This method is not in use, will be used later on
  */
 function isSunUp(data) {
   const sunriseTimestamp = data.sys.sunrise;
@@ -103,13 +101,8 @@ function isSunUp(data) {
   const currentLocalTime = new Date((currentTimestamp + timezoneOffset) * 1000);
 
   // Check if current time is between sunrise and sunset
-  const isDaytime = currentLocalTime > sunriseTime && currentLocalTime < sunsetTime;
+  return currentLocalTime > sunriseTime && currentLocalTime < sunsetTime;
 
-  if (isDaytime) {
-    return true;
-  } else {
-    return false;
-  }
 }
 
 /**
@@ -121,7 +114,7 @@ function getIcon(data) {
   // const isDay = isSunUp(data);
   const weatherDescription = data.weather[0].main;
   let icon = weatherIcon.find(icon => icon.description.toLowerCase() === weatherDescription.toLowerCase());
-  console.log("icon day", icon, "descr", weatherDescription.toLowerCase())
+  // console.log("icon day", icon, "descr", weatherDescription.toLowerCase())
 
   return icon.iconUrl;
 }

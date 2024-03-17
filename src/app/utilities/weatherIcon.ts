@@ -33,7 +33,15 @@ export const weatherIcon = [
         iconUrl: "../assets/drizzle.svg"
     },
     {
-        description: "Mist or fog",
+        description: "fog",
+        iconUrl:"../assets/fog.svg"
+    },
+    {
+        description: "Mist",
+        iconUrl:"../assets/fog.svg"
+    },
+    {
+        description: "haze",
         iconUrl:"../assets/fog.svg"
     },
     {

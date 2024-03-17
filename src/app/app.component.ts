@@ -45,7 +45,6 @@ export class AppComponent {
     */
   getCountry(city) {
     this.countryService.getCountryInfo(city.name).subscribe(data => {
-      console.log(data['query']['pages'][Object.keys(data['query']['pages'])[0]]['extract'])
       const description = data['query']['pages'][Object.keys(data['query']['pages'])[0]]['extract'].split('.');
       city.description = description[0] + "." + description[1] + "." + description[2] + ".";
       this.sharedService.updateCountry(city);
@@ -60,8 +59,6 @@ export class AppComponent {
    */
   getWeather(longitude, latitude) {
     this.weatherService.getWeather(longitude, latitude).subscribe((data) => {
-      console.log("weather", data);
-      console.log("forecast ", data.forecast);
       this.sharedService.updateWeather(data);
     })
 
@@ -73,9 +70,8 @@ export class AppComponent {
    * @param {any} value - The selected value.
    */
   filterLocation(value: any) {
-    console.log(value);
     const place = this.countriesList.filter(item => item.name === value)[0];
-    console.log(place, "place")
+    this.sharedService.updateCity(place.name)
     this.getWeather(place.lon, place.lat);
     this.getCountry(place)
   }

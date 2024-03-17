@@ -14,3 +14,7 @@ export const GET_WIKIPEDIA_EXTRACT= "https://en.wikipedia.org/w/api.php";
 export const api_key = "f3cdd9878a169a789dbb8702a386aa28";
 
 export const degreeSymbol='\u00B0';
+
+
+
+// http://api.openweathermap.org/geo/1.0/direct?q=paris,Fr&limit=1&appid=f3cdd9878a169a789dbb8702a386aa28

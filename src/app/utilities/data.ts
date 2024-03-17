@@ -1,7 +1,7 @@
 import { City } from "../model/city";
 
 export const countries: City[] = [
-  { name: 'Paris', country: 'France', countryCode: 'FR', lat: 48.8566, lon: 2.3522 },
+  { name: 'Calgary', country: 'Canada', countryCode: 'CA', lat: 51.049999, lon: -114.066666 },
   { name: 'Tokyo', country: 'Japan', countryCode: 'JP', lat: 35.6895, lon: 139.6917 },
   { name: 'New York City', country: 'United States', countryCode: 'US', lat: 40.7128, lon: -74.0060 },
   { name: 'Sydney', country: 'Australia', countryCode: 'AU', lat: -33.8688, lon: 151.2093 },
