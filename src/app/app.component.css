@@ -1,6 +1,8 @@
 .container {
   height: 100%;
-  padding: 0 10%;
+  padding: 0 10% ;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -35,7 +37,7 @@
   width: 400px;
   height: 600px;
   perspective: 1000px;
-  background: rgb(199 186 186 / 50%);
+  /* background: rgb(199 186 186 / 50%); */
   border-radius: 40px;
 }
 
@@ -52,6 +54,7 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   border-radius: 40px;
+  background: rgb(199 186 186 / 50%);
 }
 
 .flip {

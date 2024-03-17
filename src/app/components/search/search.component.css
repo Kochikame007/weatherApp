@@ -22,6 +22,15 @@
   border: 1px solid black;
 }
 
+@media screen and (max-width:500px){
+  .search-input{
+    width: 300px;
+  }
+  .list{
+    width: 300px;
+  }
+}
+
 fa-icon {
   position: absolute;
   top: 20%;
@@ -29,11 +38,9 @@ fa-icon {
 }
 
 .list {
-  /* background: grey; */
-  width: 270px;
+  width: 350px;
   padding: 5px;
   font-size: 15px;
-  /* margin-top: 2%; */
   border-radius: 10px;
   position: absolute;
   top: 110%;

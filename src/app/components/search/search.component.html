@@ -8,10 +8,18 @@
         [placeholder]="placeholder"
         autocomplete="off"
         [formControl]="searchControl"
+        
+        (focus)="showAllCities()"
+        (blur)="delayBlue()"
       />
       <fa-icon [icon]="faSearch" size="lg" (click)="emitData()"></fa-icon>
     </div>
-    <div class="list" *ngIf="searchControl.value as searchText">
+    <div class="list" *ngIf="showAll">
+      <div class="list-item" *ngFor="let item of list" (click)="selectCity(item)">
+        {{ item.name }}
+      </div>
+    </div>
+    <!-- <div class="list" *ngIf="searchControl.value as searchText">
       <div
         class="list-item"
         *ngFor="let item of list | filterlist:searchControl.value"
@@ -19,7 +27,7 @@
       >
         {{ item.name }}
       </div>
-    </div>
+    </div> -->
   </div>
 
 

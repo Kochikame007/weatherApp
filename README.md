@@ -1,9 +1,12 @@
-# weatherApp
-weatherApp that shouws city weather and city basic Info
 
 # TripPlanner
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.9.
+This project is a web application built with Angular CLI version 17.0.9. It allows users to plan trips and provides current weather information and a 5-day forecast for selected cities. Additionally, it fetches snippets about the city from Wikipedia.
+
+## Api used
+
+OpenWeatherMap API: Used to fetch current weather and 5-day forecast data.
+Wikipedia API: Used to retrieve snippets about the selected city.
 
 ## Development server
 
@@ -16,6 +19,9 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Documentation
+npm run compodoc:build-and-serve
 
 ## Running unit tests
 
