@@ -9,6 +9,10 @@ import { SharedService } from '../../services/sharedService';
   templateUrl: './city.component.html',
   styleUrl: './city.component.css'
 })
+
+/**
+ * This component displays City Data
+ */
 export class CityComponent {
 
   constructor(public sharedService: SharedService) {

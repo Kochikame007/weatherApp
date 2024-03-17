@@ -1,6 +1,6 @@
 import { Weather } from "./weather";
 
-export interface Country {
+export interface City {
     name: string,
     country: string,
     lon:number,

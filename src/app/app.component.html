@@ -9,7 +9,7 @@
       (valueEmitter)="filterLocation($event)"></app-search>
     </div>
     <div class="display-container">
-      <div class="card-container" >
+      <div class="card-container"  *ngIf="sharedService._weatherData | async ">
         <div class="card weather-card" [class.flip]="toggle">
           <app-weather></app-weather>
           <fa-icon class="toggle" [icon]="farotate" size="lg" (click)="toggle = !toggle"></fa-icon>
@@ -25,5 +25,4 @@
   </div>
 </div>
 
-
-<!-- *ngIf="sharedService._weatherData | async "  -->
+<!-- *ngIf="sharedService._weatherData | async " -->
