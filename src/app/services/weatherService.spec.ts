@@ -10,6 +10,7 @@ import { GET_CITY_WEATHER_BASE_URL, GET_CITY_WEATHER_FORCAST_BASE_URL, api_key }
 describe('WeatherService', () => {
     let service: WeatherService;
     let httpTestingController: HttpTestingController;
+    let globalErorrhandler: GlobalErrorHandler
 
 
     beforeEach(() => {
@@ -19,6 +20,7 @@ describe('WeatherService', () => {
         });
         service = TestBed.inject(WeatherService);
         httpTestingController = TestBed.inject(HttpTestingController);
+        globalErorrhandler = TestBed.inject(GlobalErrorHandler);
 
     })
 
@@ -44,6 +46,7 @@ describe('WeatherService', () => {
         weatherRequest.flush(mockWeatherData);
         forecastRequest.flush(mockForecastData);
     });
+
 })
 
 

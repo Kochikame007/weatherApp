@@ -69,7 +69,7 @@ describe('SearchComponent', () => {
 
   it('should hide all cities after delay on blur', fakeAsync(() => {
     const inputEle: HTMLInputElement = fixture.nativeElement.querySelector('input');
-    inputEle.dispatchEvent(new Event('blue'));
+    inputEle.dispatchEvent(new Event('blur'));
     tick(500);
     expect(component.showAll).toBeFalse();
   }))

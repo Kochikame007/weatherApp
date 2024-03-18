@@ -52,7 +52,7 @@ export class SearchComponent {
     this.searchControl.setValue('');
   }
 
-  delayBlue() {
+  delayBlur() {
     setTimeout(() => {
       this.showAll = false;
     }, 500)
