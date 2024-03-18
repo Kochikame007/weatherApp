@@ -3,12 +3,13 @@ import { Injectable } from "@angular/core";
 import { GET_WIKIPEDIA_EXTRACT } from "../constants/URLConstants";
 import { catchError, map, throwError } from "rxjs";
 import { GlobalErrorHandler } from "../errorhandler/GlobalErrorHandler";
+import { mapCityData } from "../utilities/mapper";
 
 @Injectable({
     providedIn: 'root'
 })
 
-export class countryService {
+export class CityService {
 
     constructor(private http: HttpClient, private globalErorrhandler: GlobalErrorHandler) { }
 
@@ -17,7 +18,7 @@ export class countryService {
     * @param {string} city - The name of the city to retrieve information about.
     * @returns {Observable<any>} An Observable that emits the response from the Wikipedia API.
     */
-    getCountryInfo(city: string) {
+    getCityInfo(city: string) {
         const url = GET_WIKIPEDIA_EXTRACT;
         const params = {
             action: 'query',
@@ -28,7 +29,9 @@ export class countryService {
             format: 'json',
             origin: '*'
         };
-        return this.http.get(url, { params }).pipe(map(response => response), catchError((err) => {
+        return this.http.get(url, { params }).pipe(map((data) => {
+            return mapCityData(data)
+        }), catchError((err) => {
             this.globalErorrhandler.handleError(err);
             return throwError(() => err);
         }));

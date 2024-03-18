@@ -11,10 +11,6 @@ import { BehaviorSubject } from "rxjs";
  */
 export class SharedService {
 
-    constructor() {
-
-    }
-
     /**
      * BehaviorSubject for storing weather data.
      * 
@@ -26,14 +22,14 @@ export class SharedService {
      * BehaviorSubject for storing country data.
      * 
      */
-    private countryData = new BehaviorSubject<any>(null);
-    _countryData = this.countryData.asObservable();
+    private cityData = new BehaviorSubject<any>(null);
+    _cityData = this.cityData.asObservable();
 
     updateWeather(data: any) {
         this.weatherData.next(data);
     }
 
-    updateCountry(data: any) {
-        this.countryData.next(data);
+    updateCity(data: any) {
+        this.cityData.next(data);
     }
 }

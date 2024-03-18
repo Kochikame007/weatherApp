@@ -13,7 +13,7 @@ export interface Weather {
     timezone: number;
     dt: number,
     day: string,
-    localtime: string;
+    localtime: number;
     sunrise: string;
     sunset: string;
     iconUrl: string;

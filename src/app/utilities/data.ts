@@ -1,6 +1,6 @@
 import { City } from "../model/city";
 
-export const countries: City[] = [
+export const Cities: City[] = [
   { name: 'Calgary', country: 'Canada', countryCode: 'CA', lat: 51.049999, lon: -114.066666 },
   { name: 'Tokyo', country: 'Japan', countryCode: 'JP', lat: 35.6895, lon: 139.6917 },
   { name: 'New York City', country: 'United States', countryCode: 'US', lat: 40.7128, lon: -74.0060 },

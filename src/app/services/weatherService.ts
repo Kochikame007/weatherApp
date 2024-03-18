@@ -13,7 +13,7 @@ import { GlobalErrorHandler } from "../errorhandler/GlobalErrorHandler";
     providedIn: 'root'
 })
 
-export class weatherService {
+export class WeatherService {
 
     constructor(private http: HttpClient, private globalErrorHandler: GlobalErrorHandler) {
 

@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { WeatherComponent } from './components/weather/weather.component';
-import { countryService } from './services/countryService';
-import { countries } from './utilities/data';
-import { weatherService } from './services/weatherService';
+import { CityService } from './services/cityService';
+import { Cities } from './utilities/data';
+import { WeatherService } from './services/weatherService';
 import { SharedService } from './services/sharedService';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faRotate } from '@fortawesome/free-solid-svg-icons';
@@ -28,12 +28,12 @@ export class AppComponent {
   farotate = faRotate;
   title = 'trip-planner';
   searchCountries = "Please select a country";
-  countriesList = countries;
+  countriesList = Cities;
   lat = 0;
   lon = 0;
   toggle = false; //toggle card  between weather and country
 
-  constructor(private countryService: countryService, private weatherService: weatherService, public sharedService: SharedService) {
+  constructor(private cityService: CityService, private weatherService: WeatherService, public sharedService: SharedService) {
   }
 
 
@@ -43,10 +43,9 @@ export class AppComponent {
     * @param {any} city - The selected city object.
     */
   getCountry(city) {
-    this.countryService.getCountryInfo(city.name).subscribe(data => {
-      const description = data['query']['pages'][Object.keys(data['query']['pages'])[0]]['extract'].split('.');
-      city.description = description[0] + "." + description[1] + "." + description[2] + ".";
-      this.sharedService.updateCountry(city);
+    this.cityService.getCityInfo(city.name).subscribe(extract => {
+      city.description = extract;
+      this.sharedService.updateCity(city);
 
     });
   }
@@ -69,6 +68,7 @@ export class AppComponent {
    * @param {any} value - The selected value.
    */
   filterLocation(value: any) {
+    console.log(value);
     const place = this.countriesList.filter(item => item.name === value)[0];
     this.getWeather(place.lon, place.lat);
     this.getCountry(place)

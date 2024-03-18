@@ -4,12 +4,26 @@ import { weatherIcon } from "./weatherIcon";
 
 
 /**
+ * pulls out the city extract from the wikipedia response call
+ * @param {any} data - response from wikipedia data
+ * @returns {extract} City extract from the response;
+ */
+export function mapCityData(data) {
+  // console.log(data);
+  const extract = data['query']['pages'][Object.keys(data['query']['pages'])[0]]['extract'].split('.');
+  return extract[0] + "." + extract[1] + "." + extract[2] + ".";
+}
+
+
+/**
  * Maps raw weather and forecast data to Weather object.
  * @param {any} weatherData - Raw weather data from the API.
  * @param {any} forecastData - Raw forecast data from the API.
  * @returns {Weather} The mapped Weather object.
  */
 export function weatherMapper(weatherData: any, forecastData: any) {
+  console.log("forecast 1", forecastData);
+  console.log("weather 1", weatherData)
   let weather: Weather;
   weather = {
     city: weatherData.name,
@@ -30,6 +44,8 @@ export function weatherMapper(weatherData: any, forecastData: any) {
     day: getLocaleDayNames(weatherData.dt + weatherData.timezone),
     forecast: transformForecast(forecastData, weatherData.timezone)
   };
+
+  console.log("transformed " , weather)
 
   return weather;
 

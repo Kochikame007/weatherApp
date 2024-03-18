@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { weatherMapper } from '../../utilities/mapper';
 import { forecast } from '../../utilities/forecast';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {faSun } from '@fortawesome/free-solid-svg-icons';
+import { faSun } from '@fortawesome/free-solid-svg-icons';
 import { TemperatureFilterPipe } from '../../utilities/custompipes/temperature-filter.pipe';
 import { degreeSymbol } from '../../constants/URLConstants';
 
@@ -22,20 +22,10 @@ export class WeatherComponent implements OnInit {
   targetSymbol = degreeSymbol + 'F';
   currentSymbol = degreeSymbol + 'C';
 
-  // weatherIcon = weatherIcon;
   constructor(public sharedservice: SharedService) { }
   ngOnInit(): void {
     // this.sharedservice.updateWeather(weatherMapper(weather, forecast));
   }
 
-  changeSymbol() {
-    if (this.currentSymbol === '°C') {
-      this.currentSymbol = '°F';
-      this.targetSymbol = '°C';
-    } else {
-      this.currentSymbol = '°C';
-      this.targetSymbol = '°F';
-    }
-  }
-
+ 
 }
