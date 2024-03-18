@@ -11,6 +11,7 @@ import { City } from '../../model/city';
   * @param {City[]} list - The list of cities to filter.
   * @param {string} searchText - The search text used for filtering.
   * @returns {City[]} The filtered list of cities.
+  * currently not in use implemented for another feature for future release
   */
 export class FilterList implements PipeTransform {
 

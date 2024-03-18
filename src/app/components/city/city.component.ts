@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { SharedService } from '../../services/sharedService';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-city',
@@ -15,7 +16,11 @@ import { SharedService } from '../../services/sharedService';
  */
 export class CityComponent {
 
-  constructor(public sharedService: SharedService) {
+  constructor(public sharedService: SharedService, private sanitizer: DomSanitizer) {
+  }
+
+  sanitize(url:string): SafeResourceUrl{
+    return this.sanitizer.bypassSecurityTrustUrl(url);
   }
 
 }

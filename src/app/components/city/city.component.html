@@ -1,7 +1,7 @@
 <div class="container" *ngIf="sharedService._cityData | async as city">
     <div class="header">
       <img
-        src="https://flagsapi.com/{{ city.countryCode }}/shiny/64.png"
+        [src]="sanitize('https://flagsapi.com/'+city.countryCode +'/shiny/64.png')"
         alt="country flag"
       />
       <div class="title">
